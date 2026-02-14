@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine Special ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ff4d6d, #ff758f);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.card {
+  background: rgba(0,0,0,0.5);
+  color: white;
+  padding: 25px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 380px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+button {
+  padding: 10px 22px;
+  margin: 8px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#yes {
+  background: #00ff99;
+}
+
+#no {
+  background: #ffcccc;
+}
+
+#text {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+#note {
+  display: none;
+  margin-top: 15px;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* hearts animation */
+.heart {
+  position: fixed;
+  top: -10px;
+  font-size: 20px;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <div id="text">Do you love me? 💕</div>
+
+  <div id="buttons">
+    <button id="yes" onclick="yesClick()">YES ❤️</button>
+    <button id="no" onclick="noClick()">NO 🙈</button>
+  </div>
+
+  <div id="note">
+    <strong>You made my day, always smile, and special 🤍✨</strong><br><br>
+
+    Aap bhot aachi mommy ho meri 🥺<br>
+    Mera dhyan rakhti ho,<br>
+    mujhe pyar karti ho,<br>
+    subha sham apne bacche ki trha dhudhu pilati ho 🍼💖<br><br>
+
+    <strong>I love you mommy ❤️</strong><br>
+    Miss you so much 😘❤️✨
+  </div>
+</div>
+
+<script>
+let step = 1;
+
+function yesClick() {
+  if (step === 1) {
+    document.getElementById("text").innerHTML =
+      "Happy Valentine’s Day ❤️✨<br>Will you always stay with me? 💖";
+    step = 2;
+  } else if (step === 2) {
+    document.getElementById("text").style.display = "none";
+    document.getElementById("buttons").style.display = "none";
+    document.getElementById("note").style.display = "block";
+  }
+}
+
+function noClick() {
+  document.getElementById("text").innerHTML =
+    "Soch lo ek baar fir se 🥺💗";
+}
+
+// hearts continuously
+setInterval(() => {
+  const h = document.createElement("div");
+  h.className = "heart";
+  h.innerHTML = "💖";
+  h.style.left = Math.random() * 100 + "vw";
+  h.style.animationDuration = (Math.random() * 3 + 3) + "s";
+  document.body.appendChild(h);
+  setTimeout(() => h.remove(), 6000);
+}, 350);
+</script>
+
+</body>
+</html>
