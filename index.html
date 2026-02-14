@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Special Note ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ff4d6d, #ff758f);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.box {
+  background: rgba(0,0,0,0.45);
+  padding: 25px;
+  border-radius: 18px;
+  text-align: center;
+  color: white;
+  width: 90%;
+  max-width: 380px;
+  z-index: 2;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 22px;
+  margin: 10px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#yes {
+  background: #00ff99;
+}
+
+#no {
+  background: #ffcccc;
+  position: absolute;
+}
+
+#note {
+  margin-top: 15px;
+  font-size: 16px;
+  line-height: 1.6;
+  display: none;
+}
+
+/* Hearts animation */
+.heart {
+  position: fixed;
+  font-size: 20px;
+  color: pink;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  0% { top: -10%; opacity: 1; }
+  100% { top: 110%; opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+  <h2>❤️ Special Note ❤️</h2>
+  <p>Will you read this from my heart? 💖</p>
+
+  <button id="yes" onclick="showNote()">YES 🥺❤️</button>
+  <button id="no" onclick="moveNo()">NO 🙈</button>
+
+  <div id="note">
+    <strong>You made my day, always smile, and always feel special 🤍✨</strong><br><br>
+
+    Aap bahut achhi mommy ho meri 🥺<br>
+    Mera dhyaan rakhti ho,<br>
+    mujhe pyaar karti ho,<br>
+    subah–shaam apne bachche ki tarah 🍼💖<br><br>
+
+    <strong>Main aapse bahut pyaar karta hoon mommy ❤️</strong><br>
+    Miss you so much 😘❤️✨
+  </div>
+</div>
+
+<script>
+function moveNo() {
+  const no = document.getElementById("no");
+  no.style.left = Math.random() * 80 + "vw";
+  no.style.top = Math.random() * 80 + "vh";
+}
+
+function showNote() {
+  document.getElementById("note").style.display = "block";
+}
+
+// heart animation
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💖";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 6000);
+}, 350);
+</script>
+
+</body>
+</html>
